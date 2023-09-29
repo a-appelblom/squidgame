@@ -88,7 +88,7 @@ function play(boards: Board[], draws: number[]): WinningMove | undefined {
     // It is possible that more than one hand can win in one go. So indexes are stored in an array in reverse order
     // Then we remove the boards from the array in reverse order to not mess up the indexes
     if (winningIndexes.length > 0) {
-      winningIndexes.sort((a: number, b: number) => a < b)
+      winningIndexes.sort((a: number, b: number) => a - b).reverse()
       winningIndexes.forEach(i => {
         boards.splice(i, 1)
       })
